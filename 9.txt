@@ -1,0 +1,135 @@
+ДЗ Е4
+
+Задание 1
+
+const dog = {
+    breed: 'Немецкая овчарка',
+    nickname: 'Дакар',
+    age: 5,
+    color: 'рыже-черный',
+    city: "Moscow",
+}
+
+const residence = Object.create(dog);
+
+residence.ownCity = 'Piter';
+
+for(let key in residence) {
+    if (residence.hasOwnProperty(key)) {
+            console.log(key);
+        
+    }
+}
+
+
+______________________________________________________________________
+
+задание 2
+
+const dog = {
+    breed: 'Немецкая овчарка',
+    nickname: 'Дакар',
+    age: 5,
+    color: 'рыже-черный',
+    city: 'Piter',
+};
+
+console.log(isProperty(dog, 'gender'));
+
+function isProperty(object, property) {
+    if (object.hasOwnProperty(property)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+_________________________________________________________________
+
+Задание 3
+
+function emptyObject() {
+    return Object.create(null);
+}
+
+const dog = emptyObject();
+
+dog.breed = 'Beagle';
+dog.nickname = 'Johny';
+dog.gender = 'male';
+dog.age = '1';
+dog.color = 'black, orange';
+dog.city = 'Moscow';
+
+console.log(emptyObject)
+_______________________________________________________________________
+
+Задание 4 
+
+function Electric(name, power) {
+    this.name = name;
+    this.power = power;
+    this.isPlugged = false;
+} 
+
+Electric.prototype.plugIn = function() {
+    console.log(this.name + " вкулючен");
+    this.isPlugged = true;
+}
+
+Electric.prototype.getPowerUsed = function() {
+    return this.isPlugged ? this.power : 0;
+}
+
+const kettle = new Electric('Чайник', 96);
+const tv = new Electric('ТВ', 950);
+
+console.log(kettle.getPowerUsed() + tv.getPowerUsed());
+
+kettle.plugIn();
+console.log(kettle.getPowerUsed() + tv.getPowerUsed());
+
+tv.plugIn();
+console.log(kettle.getPowerUsed() + tv.getPowerUsed());
+
+__________________________________________________________________
+
+Задание 5
+
+class Electric
+{
+    constructor(name, power)
+    {
+        this.name = name;
+        this.power = power;
+        this.isPlugged = false;
+    }
+
+    plugIn()
+    {
+        console.log(this.name + " вкулючен");
+        this.isPlugged = true;
+    }
+
+    getPowerUsed()
+    {
+        return this.isPlugged ? this.power : 0;
+    }
+}
+
+const kettle = new Electric('Чайник', 96);
+const tv = new Electric('ТВ', 950);
+
+console.log(kettle.getPowerUsed() + tv.getPowerUsed());
+
+kettle.plugIn();
+console.log(kettle.getPowerUsed() + tv.getPowerUsed());
+
+tv.plugIn();
+console.log(kettle.getPowerUsed() + tv.getPowerUsed());
+
+
+
+
+
+
